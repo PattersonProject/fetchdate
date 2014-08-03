@@ -69,7 +69,7 @@ class PlaydateController extends BaseController {
 	public function postAdded() {
 		foreach ($pet_id as $pet){
 			echo $pet;
-			foreach($playdate_id[] as $playdate) {
+			foreach($playdate_id as $playdate) {
 				echo $playdate;
 			}
 		}
