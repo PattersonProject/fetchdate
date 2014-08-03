@@ -67,10 +67,15 @@ class PlaydateController extends BaseController {
 	}
 
 	public function postAdded() {
+		
+		$pet_id = Input::get('pet_id');
+		$playdate_id = Input::get('playdate_id');
 		foreach ($pet_id as $pet){
-			echo $pet;
+			$petAdd = Pet::where('id', '=', $pet)
+				->first();
 			foreach($playdate_id as $playdate) {
-				echo $playdate;
+				$playdateAdd = Playdate::where('id', '=', $playdate)->first();
+				$playdateAdd->pet()->attach($petAdd);
 			}
 		}
 		$input = Input::all();

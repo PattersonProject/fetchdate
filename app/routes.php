@@ -14,6 +14,7 @@ use Paste\Pre;
 
 Route::get('/', function()
 {
+	echo ('hello');
 	return View::make('hello');
 });
 
@@ -197,6 +198,11 @@ Route::get('mysql-test', function() {
 	$results = DB::select('SHOW DATABASES;');
 
 	echo Pre::r($results);
+});
+
+Route::get('/get-environment', function(){
+
+	echo "Environment: ".App::environment();
 });
 
 Route::get('/debug', function() {
