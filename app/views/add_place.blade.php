@@ -1,3 +1,11 @@
+@extends ('templates.template')
+
+@section('pagetitle')
+<h2>Add a place</h2>
+@stop
+
+@section('body')
+
 <form action={{ url('add_place') }} method="post">
 	Hello <?php  echo ($first_name) ?>  - let's add a place
 	<input type="hidden" name="user_id" value="<?php echo ($id) ?>" >
@@ -19,3 +27,5 @@
 
 	
 	<p><input type="submit" value+"Submit!" /> </p>
+
+	@stop

@@ -1,15 +1,35 @@
-<form action={{ url('add_pet') }} method="post">
-	Hello <?php  echo ($first_name) ?>  - let's add a pet
-	<input type="hidden" name="user_id" value="<?php echo ($id) ?>" >
+@extends ('templates.template')
 
-	<p><label for="pet_name">Pet Name: </label></p>
-	<p><input type="text" name="pet_name" placeholder="Pet Name" /></p>
-	<p><label for="breed">Breed: </label></p>
-	<p><input type="text" name="breed" placeholder="Breed" /></p>
-	<p><label for="weight">Weight: </label></p>
-	<p><input type="text" name="weight" placeholder="Weight" /></p>
-	<p><label for="age">Age: </label></p>
-	<p><input type="text" name="age" placeholder="Age" /></p>
+@section('pagetitle')
+<h2>Add a pet!</h2>
+@stop
+
+@section('body')
+
+<form action={{ url('add_pet') }} method="post" class="form-horizontal">
+	<h4> Hello <?php  echo ($user['first_name']) ?>  - let's add a pet</h4>
+	<input type="hidden" name="user_id" value="<?php echo ($user['id']) ?>" >
+
+	<div class="form-group">
+		<label for="pet_name" class="col-sm-2 control-label">Pet Name: </label>
+		<input type="text" name="pet_name" placeholder="Pet Name" class="form-control"/>
+	</div>
+	<div class="form-group">
+		<label for="breed" class="col-sm-2 control-label">Breed: </label>
+		<input type="text" name="breed" placeholder="Breed" />
+	</div>
+	<div class="form-group">
+		<label for="weight" class="col-sm-2 control-label">Weight: </label>
+		<input type="text" name="weight" placeholder="Weight" />
+	</div>
+	<div class="form-group">
+		<label for="age" class="col-sm-2 control-label">Age: </label>
+		<input type="text" name="age" placeholder="Age" />
+	</div>
 
 	
-	<p><input type="submit" value+"Submit!" /> </p>
+	<div class="form-group">
+		<input type="submit" value+"Submit!" />
+	 </div>
+
+	 @stop

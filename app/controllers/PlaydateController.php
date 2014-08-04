@@ -66,6 +66,9 @@ class PlaydateController extends BaseController {
 		return View::make('pet_to_playdate',$data);
 	}
 
+	public function getAdd() {
+		
+	}
 	public function postAdded() {
 		
 		$pet_id = Input::get('pet_id');
@@ -106,7 +109,7 @@ class PlaydateController extends BaseController {
 	$playdate->start_time   = $datetime->format('h:i A');
 		$datetime->modify('+1 hour'); # Set end time 1 hour after start time
 	$playdate->end_time    = $datetime->format('h:i A');
-	$playdate->public    = 	'true'; # all seeded playdates are public
+	$playdate->public    = 	1; # all seeded playdates are public
 	$playdate->additional_info    = 'from Seeder';
 	$playdate->place_id      = $place['id'];
 	$playdate->save();

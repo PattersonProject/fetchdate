@@ -14,8 +14,8 @@ use Paste\Pre;
 
 Route::get('/', function()
 {
-	echo ('hello');
-	return View::make('hello');
+	
+	return View::make('landing');
 });
 
 Route::get('/login', function() 
@@ -36,33 +36,6 @@ Route::post('/login', function()
 
 });
 
-Route::get('/add_user', function()
-{
-	return View::make('add_user');
-});
-
-Route::post('/add_user', function(){
-	
-	$user= new User;
-	$user->first_name  = Input::get('firstName');
-	$user->last_name   = Input::get('lastName');
-	$user->username    = Input::get('username');
-	$user->password    = Hash::make(Input::get('password'));
-	$user->email       = Input::get('email');
-	$user->about_me    = Input::get('aboutMe');
-	$user->save();
-
-
-	return Response::make('User Created');
-});
-
-Route::get('/add_pet', array(
-	'before' => 'auth',
-	function(){
-		$user = Auth::user();
-		return View::make('add_pet', $user);
-	}
-));
 
 Route::post('/add_pet', function(){
 	

@@ -6,6 +6,36 @@ class UserController extends BaseController {
 
 	}
 
+	public function getAdd() {
+		return View::make('add_user');
+	}
+
+	public function postAdd() {
+
+	$user= new User;
+	$user->first_name  = Input::get('firstName');
+	$user->last_name   = Input::get('lastName');
+	$user->username    = Input::get('username');
+	$user->password    = Hash::make(Input::get('password'));
+	$user->email       = Input::get('email');
+	$user->about_me    = Input::get('aboutMe');
+	$user->save();
+
+
+	return Response::make('User Created'); 
+	}
+
+	public function getDashboard(){
+		$user = Auth::user();
+		$data['user'] = User::with('place','pet')
+			->where('id', '=', $user['id'])
+			->first();
+		// $data['playdate'] = Playdate::where
+		$date['include'] = 'user_playdates';
+
+		return View::make('user_home',$data);
+	}
+
 	public function getSeed(){
 
 		# artisan db:seed must be run first
