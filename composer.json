@@ -9,8 +9,8 @@
 		"barryvdh/laravel-debugbar": "1.*",
 		"toin0u/geotools-laravel": "0.2.*",
 		"jstayton/google-maps-geocoder": "dev-master",
-		"fzaninotto/faker": "1.3.*@dev",
-		"eternicode/bootstrap-datepicker": "dev-master"
+		"fzaninotto/faker": "1.3.*@dev"
+
 
 
 	},
