@@ -6,7 +6,7 @@
 
 @section('body')
 
-<form action={{ url('add_playdate') }} method="post" class="form-horizontal">
+<form action={{ url('playdate/add') }} method="post" class="form-horizontal">
 
 
 	Hello {{$user['first_name']}}  - let's add a playdate!
@@ -16,7 +16,7 @@
 		<div class="col-sm-10 col-sm-offset-1">
 		<strong>Where would you like to hold your playdate?</strong>
 		<select name="place" id="placeSelect" class="form-control">
-			@foreach($places as $place)
+			@foreach($user['place'] as $place)
 			<option>{{ $place->address }}</option>
 			@endforeach
 		</select>

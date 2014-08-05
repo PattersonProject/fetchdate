@@ -1,31 +1,48 @@
+@extends ('templates.template')
+
+@section ('pagetitle')
 <p>You made it to the form</p>
+@stop
 
-<form action={{url('playdate/added')}} method='post'> 
+@section ('body')
 
-	{{$user['first_name']}}
+<h4> Hey {{$user['first_name']}}, select which pets you want to send to which playdates.</h4>
 
+<form action={{url('playdate/added')}} method='post' class="form-horizontal"> 
 
-
-	<p>Which pets do you want to send to the playdate</p>
-	@foreach ($user['pet'] as $pet)
-		<lable for={{$pet->name}}>
-			<input type="checkbox" value={{$pet->id}} name="pet_id[]"> {{ $pet->pet_name}}</p>
-		</lable>
-	@endforeach
-	<p>Choose the playdates you want to attend</p>
-		
-	@foreach ($results as $result)
-	<label for="{{($result->id).'resultBox'}}">
-		<input type="checkbox" name="playdate_id[]" value="{{$result->id}}" id="{{($result->id).'resultBox'}}" > 
-		{{$result->date}} at {{$result->start_time}}
-		  Location: {{$result->place->address}}
-	</label>
-	@endforeach 
+<div class="col-sm-6">
+	<p><strong>Which pets do you want to send to the playdate</strong></p>
+	<div class="from-group">
+		<div class="checkbox">
+			@foreach ($user['pet'] as $pet)
+					<p>
+					<input type="checkbox" value={{$pet->id}} name="pet_id[]"> {{ $pet->pet_name}}</p>
+				</lable>
+			@endforeach
+		</div>
+	</div>	
+</div>
 	
+<div class="col-sm-6">
+	<p><strong>Choose the playdates you want to attend</strong></p>	
+	<div class="form-group">
+		<div class="checkbox">
+			@foreach ($results as $result)
+				<p>
+				<label for="{{($result->id).'resultBox'}}">
+					<input type="checkbox" name="playdate_id[]" value="{{$result->id}}" id="{{($result->id).'resultBox'}}" > 
+					{{$result->date}} at {{$result->start_time}}
+					  Location: {{$result->place->address}}
+				</label>
+			</p>
+			@endforeach 
+		</div>
+	</div>
+</div>
 	<input type="submit" value="Schedule Playdate!" />
 
 	
 </form>
 
-
+@stop
 

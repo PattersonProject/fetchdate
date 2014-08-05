@@ -6,8 +6,8 @@
 
 @section('body')
 
-<form action={{ url('add_pet') }} method="post" class="form-horizontal">
-	<h4> Hello <?php  echo ($user['first_name']) ?>  - let's add a pet</h4>
+<form action={{ url('pet/add') }} method="post" class="form-horizontal">
+	<h4> Hello <?php  echo $user['first_name']; ?>  - let's add a pet</h4>
 	<input type="hidden" name="user_id" value="<?php echo ($user['id']) ?>" >
 
 	<div class="form-group">
@@ -23,8 +23,8 @@
 		<input type="text" name="weight" placeholder="Weight" />
 	</div>
 	<div class="form-group">
-		<label for="age" class="col-sm-2 control-label">Age: </label>
-		<input type="text" name="age" placeholder="Age" />
+		<label for="birthdate" class="col-sm-2 control-label">Date of Birth: </label>
+		<input type="text" name="birthdate" placeholder="Birthdate" id="birthdate" />
 	</div>
 
 	

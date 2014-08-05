@@ -28,7 +28,7 @@
 	</div>
 	
 	<p>Don't have an account?  
-		<a href="user/add" class="btn btn-primary">Create one here</a>
+		<a href="/user/add" class="btn btn-primary">Create one here</a>
 	</p>
 
 </form>

@@ -31,127 +31,128 @@ Route::post('/login', function()
 	$remember = Input::has('remember');
 		if (Auth::attempt($credentials, $remember)) {
 			return Redirect::intended('/');
-	}
-	return Redirect::to('login');
+		}
+	return Redirect::to('login')
+		->with('flash_message', 'Log in failed;  please check your username and password and try again.');
 
 });
 
 
-Route::post('/add_pet', function(){
+// Route::post('/add_pet', function(){
 	
-	$pet= new pet;
-	$pet->pet_name  = Input::get('pet_name');
-	$pet->breed   = Input::get('breed');
-	$pet->weight   = Input::get('weight');
-	$pet->age       = Input::get('age');
-	$pet->user_id   = Input::get('user_id');
-	$pet->save();
+	// $pet= new pet;
+	// $pet->pet_name  = Input::get('pet_name');
+	// $pet->breed   = Input::get('breed');
+	// $pet->weight   = Input::get('weight');
+	// $pet->age       = Input::get('age');
+	// $pet->user_id   = Input::get('user_id');
+	// $pet->save();
 	
-	return Response::make('Post add_pet');
-});
+	// return Response::make('Post add_pet');
+// });
 
-Route::get('/add_place', array(
-	'before' => 'auth',
-	function(){
-		$user = Auth::user();
-		return View::make('add_place', $user);
-	}
-));
+// Route::get('/add_place', array(
+// 	'before' => 'auth',
+// 	function(){
+// 		$user = Auth::user();
+// 		return View::make('add_place', $user);
+// 	}
+// ));
 
-Route::post('/add_place', function(){
+// Route::post('/add_place', function(){
 	
-	$place= new Place;
-	$place->address  = Input::get('address');
-	$place->city   = Input::get('city');
-	$place->state    = Input::get('state');
-	$place->zip    = Input::get('zip');
+// 	$place= new Place;
+// 	$place->address  = Input::get('address');
+// 	$place->city   = Input::get('city');
+// 	$place->state    = Input::get('state');
+// 	$place->zip    = Input::get('zip');
 
-		$addressStr = $place1['address']." ".$place1['city'].", ".$place1['state'];
-		$Geocoder = new GoogleMapsGeocoder($place1str);
-		$result = $Geocoder->geocode();
-	$place->lat = $result['results']['0']['geometry']['location']['lat'];
-	$place->lng = $result['results']['0']['geometry']['location']['lng'];
+// 		$addressStr = $place['address']." ".$place['city'].", ".$place['state'];
+// 		$Geocoder = new GoogleMapsGeocoder($addressStr);
+// 		$result = $Geocoder->geocode();
+// 	$place->lat = $result['results']['0']['geometry']['location']['lat'];
+// 	$place->lng = $result['results']['0']['geometry']['location']['lng'];
 
-	$place->type       = Input::get('type');
-	$place->user_id    = Input::get('user_id');
-	$place->save();
+// 	$place->type       = Input::get('type');
+// 	$place->user_id    = Input::get('user_id');
+// 	$place->save();
 
 
-	return Response::make('Place added');
-});
+// 	return Response::make('Place added');
+// });
 
-Route::get('/add_playdate', array(
-	'before' => 'auth',
-	function(){
-		$user = Auth::user();
-		$data['user'] = $user;
-		$data['places'] = Place::where('user_id','=', $user['id'])
-			->get();
+// Route::get('/add_playdate', array(
+// 	'before' => 'auth',
+// 	function(){
+// 		$user = Auth::user();
+// 		$data['user'] = $user;
+// 		$data['places'] = Place::where('user_id','=', $user['id'])
+// 			->get();
 		
-		return View::make('add_playdate', $data);
-	}
-));
+// 		return View::make('add_playdate', $data);
+// 	}
+// ));
 
 
-Route::get('/test_distance', array( 
-	'before' => 'auth',
-	function(){
+// Route::get('/test_distance', array( 
+// 	'before' => 'auth',
+// 	function(){
 		
-		$user = Auth::user();
-		$places = Place::all();
-		$place1 = Place::first();
-		$place1str = $place1['address']." ".$place1['city'].", ".$place1['state'];
-		 echo $place1str.'<br/>';
+// 		$user = Auth::user();
+// 		$places = Place::all();
+// 		$place1 = Place::first();
+// 		$place1str = $place1['address']." ".$place1['city'].", ".$place1['state'];
+// 		 echo $place1str.'<br/>';
 
-		 $Geocoder = new GoogleMapsGeocoder($place1str);
+// 		 $Geocoder = new GoogleMapsGeocoder($place1str);
 
-		 $result = $Geocoder->geocode();
-		 $coordA = Geotools::coordinate(array(
-		 	$result['results']['0']['geometry']['location']['lat'],
-		 	$result['results']['0']['geometry']['location']['lng']));
+// 		 $result = $Geocoder->geocode();
+// 		 $coordA = Geotools::coordinate(array(
+// 		 	$result['results']['0']['geometry']['location']['lat'],
+// 		 	$result['results']['0']['geometry']['location']['lng']));
 		 
-		 foreach ($places as $place){
-			$place2str = $place['address']." ".$place['city'].", ".$place['state'];
-			$geocoder2 = new GoogleMapsGeocoder($place2str);
-			$result2 = $geocoder2->geocode();
-			$coordB = Geotools::coordinate(array(
-			 	$result2['results']['0']['geometry']['location']['lat'],
-			 	$result2['results']['0']['geometry']['location']['lng']));
+// 		 foreach ($places as $place){
+// 			$place2str = $place['address']." ".$place['city'].", ".$place['state'];
+// 			$geocoder2 = new GoogleMapsGeocoder($place2str);
+// 			$result2 = $geocoder2->geocode();
+// 			$coordB = Geotools::coordinate(array(
+// 			 	$result2['results']['0']['geometry']['location']['lat'],
+// 			 	$result2['results']['0']['geometry']['location']['lng']));
 		 
-		 	$distance = Geotools::distance()->setFrom($coordA)->setTo($coordB);
-		 	$miles = sprintf ($distance->in('mi')->flat());
-			echo ("The distance between ".$place1str." and ".$place2str." is ".$miles);
-		 }
+// 		 	$distance = Geotools::distance()->setFrom($coordA)->setTo($coordB);
+// 		 	$miles = sprintf ($distance->in('mi')->flat());
+// 			echo ("The distance between ".$place1str." and ".$place2str." is ".$miles);
+// 		 }
 
-		// echo Pre::r($place);	
-	}
-));
+// 		// echo Pre::r($place);	
+// 	}
+// ));
 
 
-Route::post('/add_playdate', function(){
+// Route::post('/add_playdate', function(){
 	
-	$place = Place::where('address', '=', Input::get('place'))
-		->first();
-	$user = User::where('id', '=' , Input::get('user_id'))
-		->first();
-	echo ($place['id'].' '.$place['address']);
+// 	$place = Place::where('address', '=', Input::get('place'))
+// 		->first();
+// 	$user = User::where('id', '=' , Input::get('user_id'))
+// 		->first();
+// 	echo ($place['id'].' '.$place['address']);
 	
 
-	$playdate= new Playdate;
-	$playdate->date  = Input::get('date');
-	$playdate->start_time   = Input::get('start_time');
-	$playdate->end_time    = Input::get('end_time');
-	$playdate->public    = (Input::get('public') ? true: false);
-	$playdate->additional_info    = Input::get('additional_info');
-	$playdate->places_id      = $place['id'];
-	$playdate->save();
+// 	$playdate= new Playdate;
+// 	$playdate->date  = Input::get('date');
+// 	$playdate->start_time   = Input::get('start_time');
+// 	$playdate->end_time    = Input::get('end_time');
+// 	$playdate->public    = (Input::get('public') ? true: false);
+// 	$playdate->additional_info    = Input::get('additional_info');
+// 	$playdate->place_id      = $place['id'];
+// 	$playdate->save();
 
-	# attach many to many relationships
-	$playdate->user()->attach($user);
+// 	# attach many to many relationships
+// 	$playdate->user()->attach($user);
 
 
-	return Response::make('Place added');
-});
+// 	return Response::make('Place added');
+// });
 
 
 
@@ -160,6 +161,8 @@ Route::post('/add_playdate', function(){
 Route::controller('pet', 'PetController');
 
 Route::controller('user', 'UserController');
+
+Route::controller('place', 'PlaceController');
 
 Route::controller('playdate', 'PlaydateController');
 

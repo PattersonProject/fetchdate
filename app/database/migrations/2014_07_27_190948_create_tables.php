@@ -18,8 +18,9 @@ class CreateTables extends Migration {
 			# PK AI
 			$table->increments('id');
 
-			#created at, updated on columns
+			#created at, updated on columns, remember token
 			$table->timestamps();
+			$table->rememberToken();
 
 			#general data
 			$table->string('first_name', 30);
@@ -28,6 +29,7 @@ class CreateTables extends Migration {
 			$table->string('password', 60);
 			$table->string('email', 45);
 			$table->longText('about_me');
+
 			
 			#no foreign keys
 
@@ -60,6 +62,7 @@ class CreateTables extends Migration {
 
 			#created at, updated on columns
 			$table->timestamps();
+
 
 			#general data
 			$table->string('name', 45);

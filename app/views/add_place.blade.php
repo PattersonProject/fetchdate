@@ -6,9 +6,9 @@
 
 @section('body')
 
-<form action={{ url('add_place') }} method="post">
-	Hello <?php  echo ($first_name) ?>  - let's add a place
-	<input type="hidden" name="user_id" value="<?php echo ($id) ?>" >
+<form action={{ url('place/add') }} method="post">
+	Hello <?php  echo ($user['first_name']) ?>  - let's add a place
+	<input type="hidden" name="user_id" value="<?php echo $user['id']; ?>" >
 
 	<p>What type of place is this?</p>
 	<p><select name="type">

@@ -6,6 +6,13 @@ class PlaydateController extends BaseController {
 		$this->beforeFilter('auth');
 	}
 
+	public function getAdd() {
+		$user = Auth::user();
+		$data['user'] = User::with('place','pet')
+			->where('id', '=', $user['id'])
+			->first();
+		return View::make('add_playdate', $data);
+	}
 	public function getSearch() {
 		$user = Auth::user();
 		$data['user'] = User::with('place','pet')
@@ -49,7 +56,7 @@ class PlaydateController extends BaseController {
 				->where('place_id', '=', $playPlace['id'])
 				->get();
 			#if there are playdates at this place add it to results	
-			if (!$playdates->isEmpty()){
+			if (!($playdates->isEmpty())){
 				foreach($playdates as $playdate){
 					$results[]=$playdate;
 				}
@@ -62,13 +69,16 @@ class PlaydateController extends BaseController {
 		$data['user'] = User::with('place','pet')
 			->where('id', '=', $user['id'])
 			->first();	
-		$data['results']=$results;	
+		if (isset($results)){	
+			$data['results']=$results;	
+		}else{
+			return Redirect::to('playdate/search')
+				->with('flash_message', "No Playdates found in your area, Please try again!");
+		}
 		return View::make('pet_to_playdate',$data);
 	}
 
-	public function getAdd() {
-		
-	}
+	
 	public function postAdded() {
 		
 		$pet_id = Input::get('pet_id');
@@ -83,6 +93,9 @@ class PlaydateController extends BaseController {
 		}
 		$input = Input::all();
 		echo Paste\Pre::r($input);
+
+		return Redirect::to('user/dashboard')
+			->with('message','Playdates added');
 	}
 
 

@@ -3,6 +3,8 @@
 class UserController extends BaseController {
 
 	public function __construct() {
+		$this->beforeFilter('auth', array(
+			'except' => array('getAdd', 'postAdd')));
 
 	}
 
@@ -21,21 +23,40 @@ class UserController extends BaseController {
 	$user->about_me    = Input::get('aboutMe');
 	$user->save();
 
-
-	return Response::make('User Created'); 
+	$credentials = Input::only('username', 'password');
+	
+	if (Auth::attempt($credentials)) {
+		return Redirect::intended('user/dashboard');
+	}
+	return Redirect::to('login')
+		->with('flash_message', 'Log in failed;  please check your username and password and try again.');
+	return Redirect::to('user/dashboard'); 
 	}
 
 	public function getDashboard(){
 		$user = Auth::user();
-		$data['user'] = User::with('place','pet')
+		$data['user'] = User::with('place','pet','playdate')
 			->where('id', '=', $user['id'])
 			->first();
-		// $data['playdate'] = Playdate::where
+		
 		$date['include'] = 'user_playdates';
-
+		// echo Paste\Pre::r($user);
 		return View::make('user_home',$data);
 	}
 
+	public function getLogout() {
+
+		# Log out
+		Auth::logout();
+
+		# Send them to the homepage
+		return Redirect::to('/');
+
+	}
+
+
+
+//*********************Seeds***********************//
 	public function getSeed(){
 
 		# artisan db:seed must be run first

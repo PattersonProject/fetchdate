@@ -12,7 +12,7 @@ You can manage multiple pets and find new places to meet near by, or far away</p
 <p> Let's get started!</p>
 
 
-	<a href="/user/dashboard" class="button">Sign in or sign up!</a>
+	<a href="/user/dashboard" class="btn btn-primary">Sign in or sign up!</a>
 
 
 
