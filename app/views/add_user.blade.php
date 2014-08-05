@@ -17,17 +17,17 @@
 <!-- Tab panes -->
 
 
-<form action={{ url('user/add') }} method="post" class="form-horizontal">
+<form action={{ url('user/add') }} method="post" class="form-inline">
 	<div class="tab-content">
 		<div class="tab-pane active" id="user">
 			<div class="form-group">
 				<label for="firstName" class="control-label">First Name: </label>
 				<input type="text" name="firstName" placeholder="First Name" class="form-control"/>
-			</div>
-			<div class="form-group">
+			
 				<label for="lastName" class="control-label">Last Name: </label>
 				<input type="text" name="lastName" placeholder="Last Name" class="form-control"/>
 			</div>
+			<br/>
 			<div class="form-group">
 				<label for="username" class="control-label">Username: </label>
 				<input type="text" name="username" placeholder="Username" class="form-control"/>
@@ -48,7 +48,7 @@
 		<div class="tab-pane active" id="contact">
 		</div>
 	</div>
-	<div class="form-group"><input type="submit" value+"Submit!" class="form-control"/> </div>
+	<div class="form-group"><input type="submit" value+"Submit!" class="btn btn-primary"/> </div>
 
 </form>
 
