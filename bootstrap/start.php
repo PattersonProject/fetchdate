@@ -33,7 +33,7 @@ $env = $app->detectEnvironment(function() {
     }
     # If not found, assume production
     else {
-        return 'production';
+        return 'local';
     }
 
 });
