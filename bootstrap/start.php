@@ -24,7 +24,7 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
-$env = $app->detectEnvironment(array() {
+$env = $app->detectEnvironment(array(
 
     # See if there's an environment.php file...
     # If it exists, get environment string from there
@@ -37,7 +37,7 @@ $env = $app->detectEnvironment(array() {
     // }
     'local' => ['*']
 
-});
+));
 
 /*
 |--------------------------------------------------------------------------
