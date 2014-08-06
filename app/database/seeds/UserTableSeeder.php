@@ -4,7 +4,9 @@ class UserTableSeeder extends Seeder {
  
   public function run()
   {
-  	$user = User::create(array(
+  	
+    // My user
+    $user = User::create(array(
   		'first_name' => 'Michael',
   		'last_name' => 'Patterson',
   		'username' => 'mpatterson',
@@ -12,7 +14,9 @@ class UserTableSeeder extends Seeder {
   		'password' => Hash::make('1234aoeu')
   		));
 
-  	$faker = Faker\Factory::create();
+  	
+    // Create fake users
+    $faker = Faker\Factory::create();
 
   	for($i= 0; $i < 5; $i++)
   	{
@@ -26,7 +30,23 @@ class UserTableSeeder extends Seeder {
   		
   	}
 
-  	
+  	# Seed places
+    $place= new Place;
+    $place->address  = '74 Oxford st.';
+    $place->city   = 'Cambridge';
+    $place->state    = 'MA';
+    $place->zip    = '02138';
+
+      $addressStr = $place['address']." ".$place['city'].", ".$place['state'];
+      $Geocoder = new GoogleMapsGeocoder($addressStr);
+      $result = $Geocoder->geocode();
+    $place->lat = $result['results']['0']['geometry']['location']['lat'];
+    $place->lng = $result['results']['0']['geometry']['location']['lng'];
+
+    $place->type       = 'Residence';
+    $place->user_id    = 1;
+    $place->save();
+
   	
   
   }

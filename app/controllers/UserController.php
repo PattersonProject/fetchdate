@@ -66,7 +66,7 @@ class UserController extends BaseController {
 
 		# artisan db:seed must be run first
 
-		# Seed places
+	# Seed places
 	$place= new Place;
 	$place->address  = '74 Oxford st.';
 	$place->city   = 'Cambridge';
