@@ -14,8 +14,8 @@ use Paste\Pre;
 
 Route::get('/', function()
 {
-	return 'hi';
-	// return View::make('landing');
+
+	return View::make('landing');
 });
 
 Route::get('/login', function() 

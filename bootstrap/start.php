@@ -11,7 +11,7 @@
 |
 */
 
-echo 'hi';
+
 
 $app = new Illuminate\Foundation\Application;
 
