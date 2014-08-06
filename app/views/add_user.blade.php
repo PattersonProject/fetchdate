@@ -47,6 +47,7 @@
 			</div>
 		</div>
 		<div class="tab-pane active" id="contact">
+		
 		</div>
 	</div>
 	<div class="form-group"><input type="submit" value+"Submit!" class="btn btn-primary"/> </div>

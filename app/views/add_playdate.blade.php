@@ -27,7 +27,9 @@
 	<div class="form-group">
 		<label for="dateBox" class="col-sm-2 control-label">Date: </label>
 		<div class="col-sm-8">
-			<input type="text" name="date" placeholder="Date" class="form-control" id="dateBox" />
+			<input type="text" name="month" placeholder="Date" class="form-control" id="dateBox" />
+			<input type="text" name="day" placeholder="dd" class="form-control">
+			<input type="text" name="year" placeholder="YYYY" class="from-control">
 		</div>
 	</div> make this a datepicker
 	<div class="form-group">
