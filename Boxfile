@@ -21,7 +21,6 @@ web1:
   after_deploy:
     - "rm -f app/storage/cache/*"
     - "rm -f app/storage/views/*"
-    - "php artisan migrate:reset"
     - "php artisan migrate"
     - "php artisan db:seed"
     

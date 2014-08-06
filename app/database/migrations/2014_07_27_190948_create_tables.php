@@ -47,7 +47,7 @@ class CreateTables extends Migration {
 			$table->string('pet_name', 30);
 			$table->string('breed', 45);
 			$table->integer('weight');
-			$table->date('birthdate');
+			$table->integer('birthdate');
 			$table->longText('about_me');
 			$table->integer('user_id')->unsigned(); #user FK
 

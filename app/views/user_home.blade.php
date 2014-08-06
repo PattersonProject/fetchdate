@@ -16,7 +16,7 @@
 			<ul>
 				@foreach($user['pet'] as $pet)
 				<li>
-					{{$pet['pet_name']}} Age {{$pet['birthdate']}}
+					{{$pet['pet_name']}} Age {{date('m-d-Y',$pet['birthdate'])}}
 				</li>
 				@endforeach
 			</ul>
