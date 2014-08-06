@@ -7,26 +7,35 @@
 @section('body')
 
 <form action={{ url('place/add') }} method="post" class="form-horizontal">
-	Hello <?php  echo ($user['first_name']) ?>  - let's add a place
-	<input type="hidden" name="user_id" value="<?php echo $user['id']; ?>" >
+	<h4>Hello <?php  echo ($user['first_name']) ?>  - let's add a place</h4>
+	<input type="hidden" name="user_id" value="{{$user['id']}}">
 
 	<div class="form-group">
-		What type of place is this?</p>
-	<p><select name="type" class="form-control">
+		<label class="control-label">
+			What type of place is this?
+		</label>
+		<select name="type" class="form-control">
 		<option>Residence</option>
 		<option>Dog Park</option>
 		<option>Other</option>
-	</p>
-	<p><label for="address">Address: </label></p>
-	<p><input type="text" name="address" placeholder="Address" /></p>
-	<p><label for="city">City: </label></p>
-	<p><input type="text" name="city" placeholder="City" /></p>
-	<p><label for="state">State: </label></p>
-	<p><input type="text" name="state" placeholder="State" /></p>
-	<p><label for="zip">Zip Code: </label></p>
-	<p><input type="text" name="zip" placeholder="Zip" /></p>
+		
+	</div>
+	<div class="form-group">
+		<br>
+		<label for="address">Address: </label>
+		<input type="text" name="address" placeholder="Address" class="form-control"/>
+	</div>
+	<div class="form-group">
+		<label for="city">City: </label>
+		<input type="text" name="city" placeholder="City" class="form-control"/></div>
+	<div class="form-group">
+		<label for="state">State: </label>
+		<input type="text" name="state" placeholder="State" class="form-control"/></div>
+	<div class="form-group">
+		<label for="zip">Zip Code: </label>
+		<input type="text" name="zip" placeholder="Zip" class="form-control"/></div>
 
 	
-	<p><input type="submit" value+"Submit!" /> </p>
+	<div class="form-group"><input type="submit" value+"Submit!" class="btn btn-primary"/> </div>
 
 	@stop

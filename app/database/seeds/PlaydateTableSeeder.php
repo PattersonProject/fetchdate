@@ -19,7 +19,8 @@ class PlaydateTableSeeder extends Seeder {
 				->take(1)
 				->first();
 
-
+				echo "user id ".$user['id'];
+				echo "place id ".$place['id']."!";
 		
 			$playdate= new Playdate;
 				$datetime= $faker->dateTimeBetween($startDate='now', $endDate='+30 days'); #get fake dateTime
