@@ -180,6 +180,22 @@ class UserTableSeeder extends Seeder {
     $place->user_id    = 5;
     $place->save();
 
+$place= new Place;
+    $place->address  = 'Breakheart Reservation Upper Parking Lot';
+    $place->city   = 'Saugus';
+    $place->state    = 'MA';
+    $place->zip    = '01906';
+
+      $addressStr = $place['address']." ".$place['city'].", ".$place['state'];
+      $Geocoder = new GoogleMapsGeocoder($addressStr);
+      $result = $Geocoder->geocode();
+    $place->lat = $result['results']['0']['geometry']['location']['lat'];
+    $place->lng = $result['results']['0']['geometry']['location']['lng'];
+
+    $place->type       = 'Dog Park';
+    $place->user_id    = 6;
+    $place->save();
+
     # Seed Phone numbers
 
     $faker = Faker\Factory::create();

@@ -11,13 +11,15 @@ class PlaydateTableSeeder extends Seeder {
 
 		for ($i=0; $i < 15; $i++){
 
-			$user = User::whereId(rand(1, 5))
+			$user = User::whereId(rand(1, 6))
 				->first();
 			$pets = Pet::where('user_id', '=', $user['id'])
 				->get();
 			$place = Place::where('user_id', '=', $user['id'])
-				->take(1)
 				->first();
+
+				echo "user".$user['id'];
+				echo "place".$place['id']."  ";
 
 		
 			$playdate= new Playdate;
