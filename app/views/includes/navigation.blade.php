@@ -12,6 +12,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				
 				@if (Auth::user())
+					<li><a href="/user/dashboard">Your Dashboard</a></li>
 					<li><a href="/user/logout">Logout</a></li>
 				@else
 					<li><a href="/user/dashboard">Log In</a></li>
