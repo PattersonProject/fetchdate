@@ -16,10 +16,9 @@ class PlaydateTableSeeder extends Seeder {
 			$pets = Pet::where('user_id', '=', $user['id'])
 				->get();
 			$place = Place::where('user_id', '=', $user['id'])
+				->take(1)
 				->first();
 
-				echo "user".$user['id'];
-				echo "place".$place['id']."  ";
 
 		
 			$playdate= new Playdate;
