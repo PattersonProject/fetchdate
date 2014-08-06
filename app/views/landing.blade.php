@@ -2,7 +2,7 @@
 
 
 @section('pagetitle')
-	<h2 class="hidden-xs">Welcome to Fetchdate</h2>
+	<h2 class="hidden-xs">Welcome to DWA-15</h2>
 @stop
 
 @section('body')
