@@ -7,7 +7,7 @@ class UserTableSeeder extends Seeder {
   	DB::statement('SET FOREIGN_KEY_CHECKS=0');
     DB::statement('TRUNCATE users');
     DB::statement('TRUNCATE places');
-    DB::statement('TRUNCATE phones');
+   
 
     // My user
     $user = User::create(array(
@@ -196,18 +196,7 @@ $place= new Place;
     $place->user_id    = 6;
     $place->save();
 
-    # Seed Phone numbers
-
-    $faker = Faker\Factory::create();
-   
-    for ($i=0; $i < 4; $i++) 
-    {
-      $phone= new Phone;
-      $phone->type = 'mobile';
-      $phone->phone = $faker->phoneNumber;
-      $phone->user_id = $i+1;
-      $phone->save();
-    }
+    
 
   
   }

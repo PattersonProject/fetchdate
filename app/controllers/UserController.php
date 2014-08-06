@@ -19,6 +19,7 @@ class UserController extends BaseController {
 		'password' => 'min:6'
 	)	;
 
+	// Save new User
 	$user= new User;
 	$user->first_name  = Input::get('firstName');
 	$user->last_name   = Input::get('lastName');
@@ -31,11 +32,14 @@ class UserController extends BaseController {
 	$credentials = Input::only('username', 'password');
 	
 	if (Auth::attempt($credentials)) {
-		return Redirect::intended('user/dashboard');
+		return Redirect::to('user/dashboard');
+	}else{
+		echo "Error with user_home";
+		return Redirect::to('user/add')
+			->with('flash_message', 'Log in failed;  please check your username and password and try again.');
 	}
-	return Redirect::to('login')
-		->with('flash_message', 'Log in failed;  please check your username and password and try again.');
-	return Redirect::to('user/dashboard'); 
+
+	
 	}
 
 	public function getDashboard(){

@@ -11,20 +11,28 @@
 	<input type="hidden" name="user_id" value="<?php echo ($user['id']) ?>" >
 
 	<div class="form-group">
-		<label for="pet_name" class="col-sm-2 control-label">Pet Name: </label>
-		<input type="text" name="pet_name" placeholder="Pet Name" class="form-control"/>
+		<label for="pet_nameBox" class="col-sm-2 control-label">Pet Name: </label>
+		<div class="col-sm-4">
+			<input type="text" name="pet_name" placeholder="Pet Name" id="pet_nameBox" class="form-control"/>
+		</div>
 	</div>
 	<div class="form-group">
-		<label for="breed" class="col-sm-2 control-label">Breed: </label>
-		<input type="text" name="breed" placeholder="Breed" />
+		<label for="breedBox" class="col-sm-2 control-label">Breed: </label>
+		<div class="col-sm-4">
+			<input type="text" name="breed" placeholder="Breed" id="breedBox" class="form-control" />
+		</div>
 	</div>
 	<div class="form-group">
-		<label for="weight" class="col-sm-2 control-label">Weight: </label>
-		<input type="text" name="weight" placeholder="Weight" />
+		<label for="weightBox" class="col-sm-2 control-label">Weight: </label>
+		<div class="col-sm-4">
+			<input type="text" name="weight" placeholder="Weight" id="weightBox" class="form-control" />
+		</div>
 	</div>
 	<div class="form-group">
-		<label for="birthdate" class="col-sm-2 control-label">Date of Birth: </label>
-		<input type="text" name="birthdate" placeholder="Birthdate" id="birthdate" />
+		<label for="birthdateBox" class="col-sm-2 control-label">Date of Birth: </label>
+		<div class="col-sm-4">
+			<input type="text" name="birthdate" placeholder="Birthdate" id="birthdateBox" class="form-control" />
+		</div>
 	</div>
 
 	

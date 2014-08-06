@@ -79,25 +79,7 @@ class CreateTables extends Migration {
 			$table->foreign('user_id')->references('id')->on('users');
 		});
 
-		#create phones table
-		Schema::create('phones', function($table){
-			# PK AI
-			$table->increments('id');
-
-			#created at, updated on columns
-			$table->timestamps();
-
-			#general data
-			$table->string('type',20);
-			$table->string('phone', 20);
-			$table->integer('user_id')->unsigned(); #user FK
-
-			#define foreign keys
-			$table->foreign('user_id')->references('id')->on('users');
-
-
-		});
-
+		
 		#Create playdates table
 		Schema::create('playdates', function($table){
 			# PK AI
@@ -164,8 +146,7 @@ class CreateTables extends Migration {
 		Schema::drop('playdates');
 
 
-		Schema::drop('phones');
-
+		
 		Schema::drop('places');
 
 		Schema::drop('pets');
