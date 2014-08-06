@@ -17,7 +17,7 @@
 		<strong>Where would you like to hold your playdate?</strong>
 		<select name="place" id="placeSelect" class="form-control">
 			@foreach($user['place'] as $place)
-			<option>{{ $place->address }}</option>
+			<option value={{$place->id}}>{{ $place->address }}</option>
 			@endforeach
 		</select>
 		</div>

@@ -14,6 +14,11 @@ class UserController extends BaseController {
 
 	public function postAdd() {
 
+	$rules=array(
+		'email' => 'email|unique:users,email',
+		'password' => 'min:6'
+	)	
+
 	$user= new User;
 	$user->first_name  = Input::get('firstName');
 	$user->last_name   = Input::get('lastName');

@@ -11,6 +11,8 @@
 |
 */
 
+echo 'hi';
+
 $app = new Illuminate\Foundation\Application;
 
 /*
@@ -24,7 +26,12 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
-$env = $app->detectEnvironment(function {
+// $env = $app->detectEnvironment(array(
+//         'local' => array('*'),
+
+// ));
+
+$env = $app->detectEnvironment(function() {
 
     # See if there's an environment.php file...
     # If it exists, get environment string from there
@@ -35,9 +42,9 @@ $env = $app->detectEnvironment(function {
     else {
         return 'production';
     }
-    // 'local' => ['*']
 
 });
+// });
 
 /*
 |--------------------------------------------------------------------------
