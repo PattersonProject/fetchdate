@@ -6,12 +6,13 @@
 
 @section('body')
 
-<form action={{ url('place/add') }} method="post">
+<form action={{ url('place/add') }} method="post" class="form-horizontal">
 	Hello <?php  echo ($user['first_name']) ?>  - let's add a place
 	<input type="hidden" name="user_id" value="<?php echo $user['id']; ?>" >
 
-	<p>What type of place is this?</p>
-	<p><select name="type">
+	<div class="form-group">
+		What type of place is this?</p>
+	<p><select name="type" class="form-control">
 		<option>Residence</option>
 		<option>Dog Park</option>
 		<option>Other</option>
