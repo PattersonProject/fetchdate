@@ -20,7 +20,7 @@
 			<ul>
 				@foreach($user['pet'] as $pet)
 				<li>
-					{{$pet['pet_name']}} <strong>Date of Birth: </strong> {{date('m-d-Y',$pet['birthdate'])}}
+					<strong>{{$pet['pet_name']}} </strong>Date of Birth: <strong> {{date('m-d-Y',$pet['birthdate'])}}</strong>
 				</li>
 				@endforeach
 			</ul>
@@ -37,7 +37,7 @@
 			<ul>
 				@foreach($user['place'] as $place)
 				<li>
-					{{$place['address']}} <strong>Type: </strong>{{$place['type']}}
+					<strong>{{$place['address']}} </strong>Type: <strong>{{$place['type']}}</strong>
 				</li>
 				@endforeach
 			</ul>
@@ -60,7 +60,9 @@
 		
 			@foreach($user['playdate'] as $playdate)
 			<li>
-				{{date('D n-j-Y',strtotime($playdate['date']))}} <strong>Time: </strong>{{$playdate['start_time']}}
+				<strong>{{date('D n-j-Y',strtotime($playdate['date']))}} </strong> 
+				<em>Time: </em> <strong>{{$playdate['start_time']}} </strong> 
+				<em>At </em><strong> {{$place['address']}}, {{$place['city']}}</strong>
 			</li>
 			@endforeach
 
@@ -80,7 +82,9 @@
 
 			@foreach($pet['playdate'] as $playdate)
 			<li>
-				{{date('D n-j-Y',strtotime($playdate['date']))}} <strong>Time: </strong>{{$playdate['start_time']}} 
+				<strong> {{date('D n-j-Y',strtotime($playdate['date']))}} </strong> <em>Time: </em>
+				<strong>{{$playdate['start_time']}}  </strong> 
+				<em>At </em><strong> {{$playdate['place']['address']}}, {{$playdate['place']['city']}}</strong>
 
 			</li>
 			@endforeach

@@ -46,7 +46,7 @@ class UserController extends BaseController {
 		$user = Auth::user();
 		$data['user'] = User::with(array('place',
 			'pet.playdate' => function($q){ 
-				$q->where("date", ">", date('Y-m-d')); //Choose only playdates in the future
+				$q->with('place')->where("date", ">", date('Y-m-d'))->orderBy('date'); //Choose only playdates in the future
 			},
 			'playdate' => function($query){
 				$query->where("date", ">", date('Y-m-d') ); //Choose only playdates in the future

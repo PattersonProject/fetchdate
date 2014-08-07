@@ -23,6 +23,7 @@ Password: 1234aoeu
 * Add place to playdate listings
 * Move all dates and times to unix format.  Currently date and time counts on user using correct format
 * Form validation on client and server side
+* Better default values for pets birthday (also age reporting)
 * Error handeling especially around geocoding
 
 ##Challenges
