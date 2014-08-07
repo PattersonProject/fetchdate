@@ -13,6 +13,7 @@ You can create an account, add a dog, create a playdate and search for playdates
 Alternately you can sign in to the following account to see it already populated with data:
 
 Username: mpatterson
+
 Password: 1234aoeu
 
 
@@ -41,4 +42,4 @@ Password: 1234aoeu
 * Laravel 4 Debugbar (for debugging) URL: https://github.com/barryvdh/laravel-debugbar
 * Geotools for Laravel (for getting distances between locations) URL: https://github.com/toin0u/Geotools-laravel
 * Google Maps Geocoder (to get gps data for addresses) URL: https://github.com/jstayton/GoogleMapsGeocoder
-*Faker (for seeding database) URL: https://github.com/fzaninotto/Faker
+* Faker (for seeding database) URL: https://github.com/fzaninotto/Faker
