@@ -1,5 +1,9 @@
 @extends ('templates.template')
 
+@section('head')
+<title>Fetchdate - create a playdate</title>
+@stop
+
 @section('pagetitle')
 <h2>Make a playdate!</h2>
 @stop

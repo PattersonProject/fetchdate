@@ -1,5 +1,9 @@
 @extends ('templates.template')
 
+@section('head')
+<title>Fetch a playdate</title>
+@stop
+
 @section('pagetitle')
 <h2>Let's fetch a playdate!</h2>
 @stop

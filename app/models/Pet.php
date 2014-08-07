@@ -16,6 +16,6 @@ class Pet extends Eloquent
 
 	public function playdate() {
 		# Pet belongs to many Playdates
-		return $this->belongsToMany('Playdates');
+		return $this->belongsToMany('Playdate');
 	}
 }

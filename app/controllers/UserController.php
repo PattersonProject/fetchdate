@@ -44,17 +44,18 @@ class UserController extends BaseController {
 
 	public function getDashboard(){
 		$user = Auth::user();
-		$data['user'] = User::with('place','pet','playdate')
+		$data['user'] = User::with(array('place',
+			'pet.playdate' => function($q){ 
+				$q->where("date", ">", date('Y-m-d')); //Choose only playdates in the future
+			},
+			'playdate' => function($query){
+				$query->where("date", ">", date('Y-m-d') ); //Choose only playdates in the future
+			}))
 			->where('id', '=', $user['id'])
 			->first();
-			echo $data['user']['pet'];
-		// $data['pets'] = Playdate::where('')
-		// 	->where('id', '=', $data['user']['pet'])
-		// 	->get();
-		// echo Paste\Pre::r($data['user']['pet']);
-		
+
 		$data['include'] = 'user_playdates';
-		// echo Paste\Pre::r($user);
+		
 		return View::make('user_home',$data);
 	}
 

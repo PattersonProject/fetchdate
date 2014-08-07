@@ -1,5 +1,7 @@
 @extends ('templates.template')
 
+
+
 @section('pagetitle')
 <h2>Add a pet!</h2>
 @stop

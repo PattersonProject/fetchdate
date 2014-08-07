@@ -1,7 +1,11 @@
 @extends ('templates.template')
 
+@section('head')
+<title>Choose playdates</title>
+@stop
+
 @section ('pagetitle')
-<p>You made it to the form</p>
+<p>Select your pets and playdates</p>
 @stop
 
 @section ('body')

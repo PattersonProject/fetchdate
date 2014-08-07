@@ -1,5 +1,9 @@
 @extends('templates.template')
 
+@section('head')
+<title>Login to Fetchdate</title>
+@stop
+
 @section('pagetitle')
 	<h2> Login </h2>
 @stop

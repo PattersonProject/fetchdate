@@ -47,28 +47,51 @@
 		</div>
 	</div>
 
+
+
 </div>
 	
-	<div class="col-xs-8 pull-right">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4>Playdates that you're hosting</h4>
-			</div>
-			<div class="panel-body">
+<div class="col-xs-8 pull-right">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4>Playdates that you're hosting</h4>
+		</div>
+		<div class="panel-body">
+		
+			@foreach($user['playdate'] as $playdate)
+			<li>
+				{{$playdate['date']}} <strong>Time: </strong>{{$playdate['start_time']}}
+			</li>
+			@endforeach
+
+
+			<a href="../playdate/add" class="btn btn-default">Add a playdate</a>
+			<a href="../playdate/search" class="btn btn-default">Fetch a playdate</a>
 			
-				@foreach($user['playdate'] as $playdate)
-				<li>
-					{{$playdate['date']}} <strong>Time: </strong>{{$playdate['start_time']}}
-				</li>
-				@endforeach
-
-
-				<a href="../playdate/add" class="btn btn-default">Add a playdate</a>
-				<a href="../playdate/search" class="btn btn-default">Fetch a playdate</a>
-				
-			</div>
 		</div>
 	</div>
+	@foreach($user['pet'] as $pet)
+		<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4>Playdates for {{$pet['pet_name']}}</h4>
+		</div>
+		<div class="panel-body">
+			
+
+			@foreach($pet['playdate'] as $playdate)
+			<li>
+				{{$playdate['date']}} <strong>Time: </strong>{{$playdate['start_time']}}
+			</li>
+			@endforeach
+
+
+			<a href="../playdate/add" class="btn btn-default">Add a playdate</a>
+			<a href="../playdate/search" class="btn btn-default">Fetch a playdate</a>
+			
+		</div>
+	</div>
+	@endforeach
+</div>
 	
 
 
