@@ -62,7 +62,7 @@
 			<li>
 				<strong>{{date('D n-j-Y',strtotime($playdate['date']))}} </strong> 
 				<em>Time: </em> <strong>{{$playdate['start_time']}} </strong> 
-				<em>At </em><strong> {{$place['address']}}, {{$place['city']}}</strong>
+				<em>At </em><strong> {{$playdate['place']['address']}}, {{$playdate['place']['city']}}</strong>
 			</li>
 			@endforeach
 
