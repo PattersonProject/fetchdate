@@ -60,7 +60,7 @@
 		
 			@foreach($user['playdate'] as $playdate)
 			<li>
-				{{date('D j-m-Y',strtotime($playdate['date']))}} <strong>Time: </strong>{{$playdate['start_time']}}
+				{{date('D n-j-Y',strtotime($playdate['date']))}} <strong>Time: </strong>{{$playdate['start_time']}}
 			</li>
 			@endforeach
 
@@ -80,7 +80,7 @@
 
 			@foreach($pet['playdate'] as $playdate)
 			<li>
-				{{date('D j-m-Y',strtotime($playdate['date']))}} <strong>Time: </strong>{{$playdate['start_time']}} 
+				{{date('D n-j-Y',strtotime($playdate['date']))}} <strong>Time: </strong>{{$playdate['start_time']}} 
 
 			</li>
 			@endforeach
