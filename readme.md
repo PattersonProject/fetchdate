@@ -20,6 +20,7 @@ Password: 1234aoeu
 ##Improvements for next iteration
 
 * Add edit functionality to playdates and places.
+* Format flash messages 
 * Move all dates and times to unix format.  Currently date and time counts on user entering correct format
 * Form validation on client and server side
 * Better default values for pets birthday (also age reporting)
