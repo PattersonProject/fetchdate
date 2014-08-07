@@ -6,7 +6,7 @@
 				<li><a href="/playdate/add">Create a playdate</a></li>
 				<li><a href="/pet/add">Add your pets</a></li>
 				<li><a href="/place/add">Add a place</a></li>
-				<li><a href="#">Edit your Profile</a></li>
+				
 			</ul>
 			
 			<ul class="nav navbar-nav navbar-right">

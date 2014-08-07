@@ -11,7 +11,7 @@
 <form action={{url('playdate/added')}} method='post' class="form-horizontal"> 
 
 <div class="col-sm-6">
-	<p><strong>Which pets do you want to send to the playdate</strong></p>
+	<p><strong>Which pets do you want to send to the playdate?</strong></p>
 	<div class="from-group">
 		<div class="checkbox">
 			@foreach ($user['pet'] as $pet)

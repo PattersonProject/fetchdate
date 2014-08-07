@@ -47,8 +47,13 @@ class UserController extends BaseController {
 		$data['user'] = User::with('place','pet','playdate')
 			->where('id', '=', $user['id'])
 			->first();
+			echo $data['user']['pet'];
+		// $data['pets'] = Playdate::where('')
+		// 	->where('id', '=', $data['user']['pet'])
+		// 	->get();
+		// echo Paste\Pre::r($data['user']['pet']);
 		
-		$date['include'] = 'user_playdates';
+		$data['include'] = 'user_playdates';
 		// echo Paste\Pre::r($user);
 		return View::make('user_home',$data);
 	}

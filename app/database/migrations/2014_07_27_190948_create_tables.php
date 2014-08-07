@@ -40,8 +40,9 @@ class CreateTables extends Migration {
 			# PK AI
 			$table->increments('id');
 
-			#created at, updated on columns
+			#created at, updated on columns and softdelets
 			$table->timestamps();
+			$table->softDeletes();
 
 			#data
 			$table->string('pet_name', 30);
@@ -146,7 +147,6 @@ class CreateTables extends Migration {
 		Schema::drop('playdates');
 
 
-		
 		Schema::drop('places');
 
 		Schema::drop('pets');

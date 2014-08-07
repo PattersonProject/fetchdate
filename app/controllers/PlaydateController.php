@@ -16,25 +16,32 @@ class PlaydateController extends BaseController {
 
 	public function postAdd() {
 	
-	$user = User::with('pets')
-		->where('id', '=', Input::get('user_id'))
-		-> first();
+		$user = User::with('pet')
+			->where('id', '=', Input::get('user_id'))
+			-> first();
+		if (Input::get('public') == 'true'){
+			$public="true";
+		}else{
+			$public="false";
+		}
 
-	$playdate= new Playdate;
-	$playdate->date  = Input::get('year').'-'.Input::get('month').'-'.Input::get('day');	
-	$playdate->start_time   = Input::get('start_time');
-	$playdate->end_time    = Input::get('end_time');
-	$playdate->public    = 	Input::get('public');
-	$playdate->additional_info    = Input::get('additional_info');
-	$playdate->place_id      = Input::get('place');
-	$playdate->save();
+		$playdate= new Playdate;
+		$playdate->date  = Input::get('year').'-'.Input::get('month').'-'.Input::get('day');	
+		$playdate->start_time   = Input::get('start_time');
+		$playdate->end_time    = Input::get('end_time');
+		$playdate->public    = 	$public;
+		$playdate->additional_info    = Input::get('additional_info');
+		$playdate->place_id      = Input::get('place');
+		$playdate->save();
 
-	# attach many to many relationships
-	$playdate->user()->attach($user);
-	# attach all pets of a user to their playdate
-	foreach($user[pet] as $pet ){
-		$playdate->pet()->attach($pet);
-	}
+		# attach many to many relationships
+		$playdate->user()->attach($user);
+		# attach all pets of a user to their playdate
+		foreach($user['pet'] as $pet ){
+			$playdate->pet()->attach($pet);
+		}
+
+		return Redirect::to('user/dashboard');
 	}
 
 	public function getSearch() {

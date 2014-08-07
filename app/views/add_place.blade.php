@@ -1,5 +1,9 @@
 @extends ('templates.template')
 
+@section('head')
+<title>Add a place</title>
+@stop
+
 @section('pagetitle')
 <h2>Add a place</h2>
 @stop
@@ -7,7 +11,7 @@
 @section('body')
 
 <form action={{ url('place/add') }} method="post" class="form-horizontal" role="form">
-	<h4>Hello <?php  echo ($user['first_name']) ?>  - let's add a place</h4>
+	<h4>Hello <?php  echo ($user['first_name']) ?>  - let's add a place:</h4>
 	<input type="hidden" name="user_id" value="{{$user['id']}}">
 		
 		<div class="form-group">

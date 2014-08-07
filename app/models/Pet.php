@@ -5,6 +5,10 @@
 class Pet extends Eloquent
 {
 
+	use SoftDeletingTrait;
+
+	protected $dates = ['deleted_at'];
+	
 	public function user() {
 		#Pet belongs to User
 		return $this->belongsTo('User');
