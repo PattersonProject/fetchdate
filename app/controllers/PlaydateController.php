@@ -85,6 +85,7 @@ class PlaydateController extends BaseController {
 		
 			$playdates = Playdate::with('place')
 				->where('place_id', '=', $playPlace['id'])
+				->where('date', '>', date('Y-m-d'))
 				->get();
 			#if there are playdates at this place add it to results	
 			if (!($playdates->isEmpty())){

@@ -20,9 +20,10 @@ Password: 1234aoeu
 ##Improvements for next iteration
 
 * Add edit functionality to playdates and places.
+* Add place to playdate listings
 * Move all dates and times to unix format.  Currently date and time counts on user using correct format
-* Create 'schedlue' view that makes it easier to see upcoming playdates for pets and user.
 * Form validation on client and server side
+* Error handeling especially around geocoding
 
 ##Challenges
 * I spent a fair amount of time troubleshooting Pagoda for live deployment, and I missed some opportunities to work more or laravel code rather than deployment.  For instance my forms and app are very fragile at this point - I would like to have validation, error handling, and csrf protection.
